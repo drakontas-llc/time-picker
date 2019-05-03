@@ -68,7 +68,7 @@
   },
   "dependencies": {
     "classnames": "2.x",
-    "moment": "2.x",
+    "dayjs": "~1.8.13",
     "prop-types": "^15.5.8",
     "rc-trigger": "^2.2.0"
   }

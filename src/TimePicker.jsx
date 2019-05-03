@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Trigger from 'rc-trigger';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import classNames from 'classnames';
 import Panel from './Panel';
 import placements from './placements';
@@ -74,7 +74,7 @@ export default class Picker extends Component {
     popupStyle: {},
     id: '',
     align: {},
-    defaultOpenValue: moment(),
+    defaultOpenValue: dayjs(),
     allowEmpty: true,
     showHour: true,
     showMinute: true,

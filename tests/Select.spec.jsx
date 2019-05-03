@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { mount } from 'enzyme';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import TimePicker from '../src/TimePicker';
 import { clickInput, clickSelectItem, matchValue, matchAll } from './util';
 
@@ -17,7 +17,7 @@ describe('Select', () => {
       <TimePicker
         format={format}
         showSecond={showSecond}
-        defaultValue={moment('01:02:04', format)}
+        defaultValue={dayjs('01:02:04', format)}
         {...props}
       />,
     );
@@ -178,7 +178,7 @@ describe('Select', () => {
       const onAmPmChange = jest.fn();
       const picker = renderPicker({
         onAmPmChange,
-        defaultValue: moment()
+        defaultValue: dayjs()
           .hour(0)
           .minute(0)
           .second(0),
@@ -274,7 +274,7 @@ describe('Select', () => {
     it('renders correctly', async () => {
       const picker = renderPicker({
         use12Hours: true,
-        defaultValue: moment()
+        defaultValue: dayjs()
           .hour(14)
           .minute(0)
           .second(0),
@@ -294,7 +294,7 @@ describe('Select', () => {
     it('renders 12am correctly', async () => {
       const picker = renderPicker({
         use12Hours: true,
-        defaultValue: moment()
+        defaultValue: dayjs()
           .hour(0)
           .minute(0)
           .second(0),
@@ -311,7 +311,7 @@ describe('Select', () => {
     it('renders 5am correctly', async () => {
       const picker = renderPicker({
         use12Hours: true,
-        defaultValue: moment()
+        defaultValue: dayjs()
           .hour(0)
           .minute(0)
           .second(0),
@@ -331,7 +331,7 @@ describe('Select', () => {
     it('renders 12am/pm correctly', async () => {
       const picker = renderPicker({
         use12Hours: true,
-        defaultValue: moment()
+        defaultValue: dayjs()
           .hour(0)
           .minute(0)
           .second(0),
@@ -355,7 +355,7 @@ describe('Select', () => {
     it('renders uppercase AM correctly', async () => {
       const picker = renderPicker({
         use12Hours: true,
-        defaultValue: moment()
+        defaultValue: dayjs()
           .hour(0)
           .minute(0)
           .second(0),
@@ -385,7 +385,7 @@ describe('Select', () => {
         disabledHours() {
           return [0, 2, 6, 18, 12];
         },
-        defaultValue: moment()
+        defaultValue: dayjs()
           .hour(0)
           .minute(0)
           .second(0),

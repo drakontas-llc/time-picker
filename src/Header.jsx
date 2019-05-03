@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import classNames from 'classnames';
 
 class Header extends Component {
@@ -79,7 +79,7 @@ class Header extends Component {
     if (str) {
       const { value: originalValue } = this.props;
       const value = this.getProtoValue().clone();
-      const parsed = moment(str, format, true);
+      const parsed = dayjs(str, format, true);
       if (!parsed.isValid()) {
         this.setState({
           invalid: true,

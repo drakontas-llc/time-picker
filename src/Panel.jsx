@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import classNames from 'classnames';
 import Header from './Header';
 import Combobox from './Combobox';
@@ -27,7 +27,7 @@ function toNearestValidTime(time, hourOptions, minuteOptions, secondOptions) {
   const second = secondOptions
     .slice()
     .sort((a, b) => Math.abs(time.second() - a) - Math.abs(time.second() - b))[0];
-  return moment(`${hour}:${minute}:${second}`, 'HH:mm:ss');
+  return dayjs(`${hour}:${minute}:${second}`, 'HH:mm:ss');
 }
 
 class Panel extends Component {
@@ -66,7 +66,7 @@ class Panel extends Component {
     disabledHours: noop,
     disabledMinutes: noop,
     disabledSeconds: noop,
-    defaultOpenValue: moment(),
+    defaultOpenValue: dayjs(),
     use12Hours: false,
     addon: noop,
     onKeyDown: noop,
