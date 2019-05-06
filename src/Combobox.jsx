@@ -56,31 +56,31 @@ class Combobox extends Component {
     if (type === 'hour') {
       if (use12Hours) {
         if (isAM) {
-          newValue = value.hour(+itemValue % 12);
+          newValue = value.set('hour', +itemValue % 12);
         } else {
-          newValue = value.hour((+itemValue % 12) + 12);
+          newValue = value.set('hour', (+itemValue % 12) + 12);
         }
       } else {
-        newValue = value.hour(+itemValue);
+        newValue = value.set('hour', +itemValue);
       }
     } else if (type === 'minute') {
-      newValue = value.minute(+itemValue);
+      newValue = value.set('minute', +itemValue);
     } else if (type === 'ampm') {
       const ampm = itemValue.toUpperCase();
       if (use12Hours) {
         if (ampm === 'PM' && value.hour() < 12) {
-          newValue = value.hour((value.hour() % 12) + 12);
+          newValue = value.set('hour', (value.hour() % 12) + 12);
         }
 
         if (ampm === 'AM') {
           if (value.hour() >= 12) {
-            newValue = value.hour(value.hour() - 12);
+            newValue = value.set('hour', value.hour() - 12);
           }
         }
       }
       onAmPmChange(ampm);
     } else {
-      newValue = value.second(+itemValue);
+      newValue = value.set('second', +itemValue);
     }
     onChange(newValue);
   };
