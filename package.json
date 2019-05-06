@@ -1,6 +1,6 @@
 {
   "name": "rc-time-picker",
-  "version": "3.6.4",
+  "version": "3.6.5",
   "description": "React TimePicker",
   "keywords": [
     "react",
@@ -68,7 +68,7 @@
   },
   "dependencies": {
     "classnames": "2.x",
-    "dayjs": "~1.8.13",
+    "dayjs": "^1.8.13",
     "prop-types": "^15.5.8",
     "rc-trigger": "^2.2.0"
   }

@@ -51,37 +51,38 @@ class Combobox extends Component {
       onAmPmChange,
     } = this.props;
     const value = (propValue || defaultOpenValue).clone();
+    let newValue = value;
 
     if (type === 'hour') {
       if (use12Hours) {
         if (isAM) {
-          value.hour(+itemValue % 12);
+          newValue = value.hour(+itemValue % 12);
         } else {
-          value.hour((+itemValue % 12) + 12);
+          newValue = value.hour((+itemValue % 12) + 12);
         }
       } else {
-        value.hour(+itemValue);
+        newValue = value.hour(+itemValue);
       }
     } else if (type === 'minute') {
-      value.minute(+itemValue);
+      newValue = value.minute(+itemValue);
     } else if (type === 'ampm') {
       const ampm = itemValue.toUpperCase();
       if (use12Hours) {
         if (ampm === 'PM' && value.hour() < 12) {
-          value.hour((value.hour() % 12) + 12);
+          newValue = value.hour((value.hour() % 12) + 12);
         }
 
         if (ampm === 'AM') {
           if (value.hour() >= 12) {
-            value.hour(value.hour() - 12);
+            newValue = value.hour(value.hour() - 12);
           }
         }
       }
       onAmPmChange(ampm);
     } else {
-      value.second(+itemValue);
+      newValue = value.second(+itemValue);
     }
-    onChange(value);
+    onChange(newValue);
   };
 
   onEnterSelectPanel = range => {
